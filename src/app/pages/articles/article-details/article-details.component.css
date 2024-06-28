@@ -1,0 +1,74 @@
+.article-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.btn-dark {
+  background-color: #343a40;
+  border-color: #343a40;
+  transition: background-color 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #23272b;
+  border-color: #1d2124;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* le da elevacion */
+}
+
+.card-header {
+  padding: 20px;
+  border-bottom: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.article-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.article-meta {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.article-image-container {
+  text-align: center;
+}
+
+.article-image {
+
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.article-content {
+  margin-top: 1rem;
+}
+
+.article-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+@media (max-width: 576px) {
+  .article-title {
+    font-size: 1.5rem;
+  }
+
+  .article-description {
+    font-size: 1rem;
+  }
+}

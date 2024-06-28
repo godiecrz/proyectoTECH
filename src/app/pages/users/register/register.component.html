@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+<div class="login-container login-background">
+  <div class="container mt-5 mb-5">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-5">
+        <div>
+          <h1 class="display-3 fw-bold text-dark">DEFCOL</h1>
+          <h2 class="lead ">Defcol te informa todo sobre la deforestación en Cundinamarca y Boyacá. </h2>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div>
+          <div class="card shadow">
+            <div class="card-body">
+              <form [formGroup]="registerForm" class="container login-form p-2" (submit)="register()">
+                <h4 class="mb-4 text-center">Crear Cuenta</h4>
+
+                <!-- muestra barra de carga mientras responde el servicio-->
+                <ng-container *ngIf="loading">
+                  <div class="d-flex justify-content-center align-items-center flex-column">
+                    <div class="spinner-border text-warning" role="status">
+                      <span class="visually-hidden">Cargando...</span>
+                    </div>
+                    <span class="text-warning">Cargando...</span>
+                  </div>
+                </ng-container>
+
+                <p class="text-danger">{{ registerError }}</p>
+                <div class="mb-3">
+                  <input type="email" class="form-control" id="" formControlName="nameUser" placeholder="Nombre ">
+                  <div *ngIf="getName.invalid && (getName.dirty || getName.touched)" class="text-danger">
+                    <div *ngIf="getName.errors?.['required']">
+                      El nombre es requerido.
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input type="email" class="form-control" id="exampleInputEmail1" formControlName="emailUser"
+                    placeholder="Correo electrónico">
+                  <div *ngIf="getEmail.invalid && (getEmail.dirty || getEmail.touched)" class="text-danger">
+                    <div *ngIf="getEmail.errors?.['required']">
+                      El email es requerido.
+                    </div>
+                    <div *ngIf="getEmail.errors?.['email']">
+                      Formato de email invalido.
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control" id="exampleInputPassword1" formControlName="passUser"
+                    placeholder="Contraseña">
+                  <div *ngIf="getClave.invalid && (getClave.dirty || getClave.touched)" class="text-danger">
+                    <div *ngIf="getClave.errors?.['required']">
+                      La clave es requerida.
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-4 d-grid">
+                  <button type="submit" class="btn btn-primary">Registrarte</button>
+                </div>
+                <div class="mb-2 d-flex justify-content-center border-top pt-4">
+                  <button type="button" class="btn btn-outline-success" routerLink="../login">Iniciar Sesión</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

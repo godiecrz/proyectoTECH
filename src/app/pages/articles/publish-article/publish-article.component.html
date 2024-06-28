@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <!-- muestra barra de carga mientras responde el servicio-->
+      <ng-container *ngIf="loading">
+        <div class="d-flex justify-content-center align-items-center flex-column">
+          <div class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Cargando...</span>
+          </div>
+          <span class="text-warning">Cargando...</span>
+        </div>
+      </ng-container>
+
+      <form [formGroup]="registerArticle">
+        <div class="form-group">
+          <input type="text" class="form-control" id="titulo" formControlName="titleArticle"
+            placeholder="Ingrese el título">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" id="descripcionCorta" rows="2" formControlName="descShortArticle"
+            placeholder="Ingrese una descripción corta"></textarea>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" id="descripcionLarga" rows="3" formControlName="descLongArticle"
+            placeholder="Ingrese una descripción larga"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="imagen">Imagen</label>
+          <input type="file" class="form-control" id="imagen" formControlName="imageArticle"
+            (change)="onFileChange($event)">
+        </div>
+        <button type="submit" class="btn btn-dark" (click)="onSubmit()">Registrar Artículo</button>
+      </form>
+    </div>
+  </div>
+</div>

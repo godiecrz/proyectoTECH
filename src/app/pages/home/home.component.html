@@ -1,25 +1,17 @@
-<app-navbar> </app-navbar>
-<div id="carouselExampleSlidesOnly" class="carousel slide container" data-bs-ride="carousel">
-    <div class="carousel-inner" style="object-fit: cover; height: 400px;">
-        <div class="carousel-item active">
-            <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" class="d-block w-100 img-fluid"
-                alt="..." >
-        </div>
-        <div class="carousel-item">
-            <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" class="d-block w-100 img-fluid"
-                alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" class="d-block w-100 img-fluid"
-                alt="..." >
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="content-container">
+  <p class="description">Bienvenido a</p>
+  <h1 class="title">DefCOL</h1>
 </div>
+<swiper-container class="mySwiper" pagination="true" navigation="true">
+  <swiper-slide>
+    <img src="https://cdn.pixabay.com/photo/2022/09/02/13/35/mountains-7427623_960_720.jpg" class="swiper-slide-img" alt="...">
+  </swiper-slide>
+  <swiper-slide>
+    <img src="https://cdn.pixabay.com/photo/2020/10/02/13/38/sea-5621150_1280.jpg" class="swiper-slide-img" alt="...">
+  </swiper-slide>
+  <swiper-slide>
+    <img src="https://cdn.pixabay.com/photo/2018/03/02/21/49/waves-3194377_1280.jpg" class="swiper-slide-img" alt="...">
+  </swiper-slide>
+</swiper-container>

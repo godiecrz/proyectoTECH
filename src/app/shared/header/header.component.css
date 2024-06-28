@@ -1,0 +1,16 @@
+header {
+  background-image: url(https://cdn.pixabay.com/photo/2017/01/03/19/41/forest-1950402_1280.jpg); /* Asegúrate de tener una imagen en esta ruta */
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+header .container {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+h1, p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}

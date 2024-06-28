@@ -1,0 +1,37 @@
+<div class="container" *ngIf="!loading">
+  <div *ngIf="!articleSelected" class="row row-cols-1 row-cols-md-4 g-4">
+    @if (articles){
+    @for(articulo of articles; track articulo.idArticulo){
+    <div class="col">
+      <div class="card h-100 shadow">
+        <img [src]="'data:image/jpeg;base64,' + articulo.imagenArticulo" class="card-img-top" alt="Imagen del artículo">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ articulo.tituloArticulo }}</h5>
+          <p class="card-text">{{ articulo.descripcionCortaArticulo }}</p>
+          <p class="card-text"><small class="text-muted">Fecha de publicación: {{ articulo.fechaArticulo |
+              date:'mediumDate' }}</small></p>
+          <a (click)="verArticulo(articulo.idArticulo)" class="mt-auto btn btn-primary btn-block">Ver Artículo</a>
+        </div>
+      </div>
+    </div>
+    }
+    }
+
+    @if(errorMessage){
+    <app-error-message [errorMessage]="errorMessage"></app-error-message>
+    }
+  </div>
+
+  @if(articleSelected){
+  <app-article-details [articleSelected]="articleSelected" (backToList)="backToList()"></app-article-details>
+  }
+</div>
+
+<ng-container *ngIf="loading">
+  <div class="d-flex justify-content-center align-items-center flex-column">
+    <div class="spinner-border text-primary-dark spinner-border-lg" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <span class="text-primary-dark fs-4 mt-3">Cargando...</span>
+  </div>
+</ng-container>

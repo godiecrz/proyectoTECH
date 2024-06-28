@@ -1,0 +1,31 @@
+<div class="article-container container" *ngIf="!loading">
+  <button class="btn btn-dark mb-3" (click)="backToArticles()">Regresar</button>
+
+  <div class="card">
+    <div class="card-header text-center bg-dark text-white">
+      <h1 class="article-title">{{ article?.tituloArticulo }}</h1>
+      <p class="article-meta">Publicado en <span class="article-date">{{ article?.fechaArticulo | date:'mediumDate' }}</span> por <span class="article-user">{{ nameUser }}</span></p>
+    </div>
+
+    <div class="article-image-container">
+      <img [src]="'data:image/jpeg;base64,' + article?.imagenArticulo" alt="Article Image" class="card-img-top">
+    </div>
+
+    <div class="card-body">
+      <div class="article-content">
+        <p class="article-description">{{ article?.descripcionLargaArticulo }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-comment [articleId]="articleSelected"></app-comment>
+
+<ng-container *ngIf="loading">
+  <div class="d-flex justify-content-center align-items-center flex-column">
+    <div class="spinner-border text-primary-dark spinner-border-lg" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <span class="text-primary-dark fs-4 mt-3">Cargando...</span>
+  </div>
+</ng-container>

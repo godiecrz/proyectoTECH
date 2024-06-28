@@ -1,0 +1,28 @@
+.card {
+  border: none; /* Quita el borde por defecto de la tarjeta */
+  transition: transform 0.2s ease-in-out; /* Efecto de transición al hacer hover */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Efecto de levantamiento al hacer hover */
+}
+
+.card-img-top {
+  object-fit: cover; /* Ajusta la imagen para cubrir todo el espacio asignado */
+  height: 200px; /* Altura fija para la imagen */
+}
+
+.card-title {
+  font-size: 1.25rem; /* Tamaño de fuente del título */
+  margin-bottom: 0.75rem; /* Espaciado inferior */
+  text-align: justify;
+}
+
+.card-text {
+  color: #555; /* Color de texto más oscuro */
+  text-align: justify;
+}
+
+.text-muted {
+  font-size: 0.875rem; /* Tamaño de fuente más pequeño para la fecha */
+}

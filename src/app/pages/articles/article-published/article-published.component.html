@@ -1,0 +1,69 @@
+<table class="data-table">
+  <thead>
+    <tr>
+      <th class="bg-dark text-light">Imagen</th>
+      <th class="bg-dark text-light">Titulo</th>
+      <th class="bg-dark text-light">Description Corta</th>
+      <th class="bg-dark text-light">Description Larga</th>
+      <th class="bg-dark text-light">Fecha de Publicación</th>
+      <th class="bg-dark text-light">Usuario</th>
+      <th class="bg-dark text-light">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if (articles){
+      @for(articulo of articles; track articulo.idArticulo){
+        <tr>
+          <td><img [src]="'data:image/jpeg;base64,' + articulo.imagenArticulo" class="card-img-top small-image" alt="Imagen del artículo"></td>
+          <td>{{ articulo.tituloArticulo }}</td>
+          <td>{{ articulo.descripcionCortaArticulo }}</td>
+          <td>{{ articulo.descripcionLargaArticulo }}</td>
+          <td>{{ articulo.fechaArticulo | date:'mediumDate' }}</td>
+          <td>{{ articulo.articuloEmailUsuario }}</td>
+          <td>
+            <button class="btn modify-btn" (click)="editArticle(articulo)">Modificar</button>
+            <button class="btn delete-btn" (click)="deleteArticle(articulo.idArticulo)">Eliminar</button>
+          </td>
+        </tr>
+      }
+    }
+  </tbody>
+</table>
+
+
+<!-- Ventana Modal -->
+<div *ngIf="selectedArticle" class="modal show d-block" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Artículo</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="cancelEdit()"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="title" class="form-label">Título</label>
+            <input type="text" id="title" [(ngModel)]="selectedArticle.tituloArticulo" name="title" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="descriptionShort" class="form-label">Descripción Corta</label>
+            <textarea id="descriptionShort" [(ngModel)]="selectedArticle.descripcionCortaArticulo" name="descriptionShort" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="descriptionLong" class="form-label">Descripción Larga</label>
+            <textarea id="descriptionLong" [(ngModel)]="selectedArticle.descripcionLargaArticulo" name="descriptionLong" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input type="file" (change)="onFileChange($event)" id="imagen" class="form-control">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-dark">Guardar</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

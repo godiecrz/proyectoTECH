@@ -1,0 +1,13 @@
+div {
+  margin: 15px;
+}
+
+.card {
+  border: 2px solid #ccc; /* borde sólido de 2 píxeles con color gris claro */
+  border-radius: 5px; /* redondea el borde */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* le da elevacion */
+}
+
+.card-body {
+  padding: 20px; /* espaciado interno del contenido del card */
+}

@@ -1,0 +1,19 @@
+<p *ngIf="errorMessage.length!=0" class="text-danger">{{ errorMessage }}</p>
+<div>
+  <p><b> Nombre: </b> {{ user?.nameUser }} </p>
+  <p><b> Email: </b> {{  user?.emailUser }} </p>
+  <button *ngIf="userLoginOn && !editMode" (click)="editMode=true" class="btn btn-dark">
+    <img src="https://cdn.icon-icons.com/icons2/1572/PNG/96/3592815-compose-create-edit-edit-file-office-pencil-writing_107734.png"
+    width="8%" alt="editar"/> Editar datos personales</button>
+</div>
+
+<form *ngIf="userLoginOn && editMode" [formGroup]="registerForm">
+  <div class="form-group row">
+    <label for="inputNameUser" class="col-sm-1 col-form-label">Nombre</label>
+    <div class="col-sm-11">
+    <input type="text" formControlName="nameUser" class="form-contrl" id="inputNameUser">
+    </div>
+  </div>
+  <button type="submit" (click)="savePersonalDetailsData()" class="btn btn-dark mt-3">Guardar</button>
+  <a class="btn btn-danger mt-3" (click)="editMode=false">Cancelar</a>
+</form>

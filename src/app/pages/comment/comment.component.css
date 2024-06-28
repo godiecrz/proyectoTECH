@@ -1,0 +1,32 @@
+.comments-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.comments-section h3 {
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.comments-section .list-group-item {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.comments-section .list-group-item p {
+  margin: 0;
+}
+
+.comments-section .form-control {
+  resize: none;
+}
+
+.comments-section button[type="submit"] {
+  display: block;
+}
+
+.cursor {
+  cursor: pointer;
+  color: #a04141;
+}

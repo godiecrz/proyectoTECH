@@ -1,0 +1,53 @@
+<div class="comments-section mt-5">
+  <h3 class="mb-4">Comentarios</h3>
+
+  <!-- muestra barra de carga mientras responde el servicio-->
+  <ng-container *ngIf="loading">
+    <div class="d-flex justify-content-center align-items-center flex-column">
+      <div class="spinner-border text-warning" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+      <span class="text-warning">Cargando...</span>
+    </div>
+  </ng-container>
+
+  <ul class="list-group mb-4">
+    @if (comments){
+    @for(comment of comments; track comment.idComment){
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <strong>{{ comment.nameUserComment }}</strong>
+        <em class="text-muted">{{ comment.dateComment | date:'short' }}</em>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="mt-2">{{ comment.descriptionComment }}</p>
+        <a *ngIf="comment.authorComment || isAdmin" class="cursor" (click)="deleteComment(comment.idComment)">Eliminar</a>
+      </div>
+    </li>
+    }
+    }
+  </ul>
+
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <textarea formControlName="descriptionComment" class="form-control" rows="3"
+        placeholder="Escribe tu comentario"></textarea>
+      <div *ngIf="commentForm.get('descriptionComment')?.invalid && commentForm.get('descriptionComment')?.touched"
+        class="text-danger mt-1">
+        El contenido es requerido.
+      </div>
+    </div>
+
+    <!-- muestra barra de carga mientras responde el servicio-->
+    <ng-container *ngIf="loading2">
+      <div class="d-flex justify-content-center align-items-center flex-column">
+        <div class="spinner-border text-warning" role="status">
+          <span class="visually-hidden">Cargando...</span>
+        </div>
+        <span class="text-warning">Cargando...</span>
+      </div>
+    </ng-container>
+
+    <button type="submit" class="btn btn-primary" [disabled]="commentForm.invalid">Publicar Comentario</button>
+  </form>
+</div>

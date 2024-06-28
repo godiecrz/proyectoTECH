@@ -1,0 +1,97 @@
+.mySwiper {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+
+/* Images */
+.swiper-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.swiper-slide-img:hover {
+  transform: scale(1.03);
+}
+
+
+/* Navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000;
+  transition: color 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #007bff;
+}
+
+/* Pagination bullets */
+.swiper-pagination-bullet {
+  background-color: #000;
+  opacity: 0.7;
+  transition: opacity 0.3s, background-color 0.3s;
+}
+
+.swiper-pagination-bullet:hover {
+  background-color: #007bff;
+  opacity: 1;
+}
+
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-slide {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-container {
+  position: absolute;
+  top: 60%;
+  left: 41%;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 4.5rem; /* Tamaño de fuente para el título */
+  margin-bottom: 10px; /* Espacio debajo del título */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra negra semitransparente */
+}
+
+.description {
+  font-size: 1.25rem; /* Tamaño de fuente para la descripción */
+  margin-bottom: 20px; /* Espacio debajo de la descripción */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra negra semitransparente */
+}

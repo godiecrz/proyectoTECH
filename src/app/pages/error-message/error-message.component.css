@@ -1,0 +1,48 @@
+/* error-message.component.css */
+
+.error-message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.error-message {
+  background-color: #f8d7da; /* Color de fondo para un mensaje de error */
+  border: 1px solid #f5c6cb; /* Borde rojo suave */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno */
+  width: 300px; /* Ancho fijo */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  text-align: center; /* Alineación central del contenido */
+}
+
+.error-icon {
+  float: left;
+  margin-right: 10px;
+}
+
+.error-text {
+  font-size: 16px; /* Tamaño de fuente */
+  line-height: 1.5; /* Espaciado entre líneas */
+  margin-bottom: 10px; /* Margen inferior */
+  color: #420b11; /* Texto oscuro */
+}
+
+.login-text {
+  font-size: 16px; /* Tamaño de fuente */
+  line-height: 1.5; /* Espaciado entre líneas */
+  margin-bottom: 10px; /* Margen inferior */
+  color: #96626a; /* Texto oscuro */
+  text-decoration: underline;
+}
+
+.login-text:hover {
+  color: #0056b3; /* Color del texto al pasar el mouse (azul oscuro) */
+}
+
+.error-icon svg {
+  width: 24px; /* Tamaño del icono */
+  height: 24px;
+  fill: #721c24; /* Color del icono */
+}

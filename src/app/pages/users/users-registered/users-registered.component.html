@@ -1,0 +1,68 @@
+<table class="data-table">
+  <thead>
+    <tr>
+      <th class="bg-dark text-light">Nombre</th>
+      <th class="bg-dark text-light">Email</th>
+      <th class="bg-dark text-light">Rol</th>
+      <th class="bg-dark text-light">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if (users){
+    @for(user of users; track user.idUser){
+    <tr>
+      <td>{{ user.nameUser }}</td>
+      <td>{{ user.emailUser }}</td>
+      <td>{{ user.descriptionRole }}</td>
+      <td>
+        <button [disabled]="user.idUser == currentIdUser" class="btn modify-btn" (click)="editUser(user)">Modificar</button>
+        <button [disabled]="user.idUser == currentIdUser" class="btn delete-btn" (click)="deleteUser(user.idUser)">Eliminar</button>
+      </td>
+    </tr>
+    }
+    }
+  </tbody>
+</table>
+
+<!-- Ventana Modal -->
+<div *ngIf="selectedUser" class="modal show d-block" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Artículo</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="cancelEdit()"></button>
+      </div>
+
+      <!-- muestra barra de carga mientras responde el servicio-->
+      <ng-container *ngIf="loading">
+        <div class="d-flex justify-content-center align-items-center flex-column">
+          <div class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Cargando...</span>
+          </div>
+          <span class="text-warning">Cargando...</span>
+        </div>
+      </ng-container>
+
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" id="name" [(ngModel)]="selectedUser.nameUser" name="name" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="role" class="form-label">Rol</label>
+            <select id="role" [(ngModel)]="selectedUser.userRol" name="role" class="form-control">
+              @for(role of roles; track role.idRole){
+              <option [value]="role.idRole">{{ role.descriptionRole }}</option>
+              }
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-dark">Guardar</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
